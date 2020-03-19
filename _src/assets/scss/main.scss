@@ -1,8 +1,5 @@
-@import 'core/settings';
-@import 'core/links';
-
-body {
-	background: url('../images/logo-adalab-80px.png') center center no-repeat $color-white;
-	margin: 0;
-	height: 100vh;
-}
+@import 'abstract/reset.scss';
+@import 'base/variables';
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/footer';
