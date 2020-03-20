@@ -1,0 +1,33 @@
+.page__main {
+  display: flex;
+  justify-content: center;
+
+  .section {
+    .display-image {
+      max-height: 500px;
+      width: 300px;
+      margin: 15px;
+    }
+
+    .moviesListing {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      align-content: center;
+      padding-bottom: 25px;
+    }
+  }
+  .aside {
+    .favMovies {
+      .hidden {
+        visibility: hidden;
+        background-color: blue;
+        min-width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  .selectedMovie {
+    border: 1px solid red;
+  }
+}
