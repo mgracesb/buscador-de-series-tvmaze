@@ -1,33 +1,64 @@
 .page__main {
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 
   .section {
-    .display-image {
-      max-height: 500px;
-      width: 300px;
-      margin: 15px;
-    }
 
-    .moviesListing {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
-      align-content: center;
-      padding-bottom: 25px;
-    }
-  }
-  .aside {
-    .favMovies {
-      .hidden {
-        visibility: hidden;
-        background-color: blue;
-        min-width: 100px;
-        height: 100px;
+    .showsList {
+      margin-left: 20px;
+      margin-right: 20px;
+      background-color: khaki;
+
+      .showsListing {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        align-content: center;
+        padding-bottom: 25px;
+        & h3 {
+          color: rgb(243, 67, 205);
+        }
+        .display-image {
+        max-height: 500px;
+        width: 300px;
+        margin: 15px;
+        }
       }
     }
   }
-  .selectedMovie {
+  .aside {
+    min-width: 30%;
+    min-height: 93vh;
+    background-color: rgb(255, 233, 252);
+    .favShows {
+      padding: 1.5rem;
+      .favShowLi {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: rgb(249, 254, 255);
+        border-radius: 5px;
+
+        & h4 {
+          font-size: 1.5rem;
+          color: rgb(223, 219, 1);
+          padding-left: 5%;
+        }
+        & img {
+          max-height: 100px;
+        }
+      }
+    }
+  }
+
+  .aside .favShows .hidden {
+    visibility: hidden;
+  }
+
+  .selectedShow {
     border: 1px solid red;
   }
 }

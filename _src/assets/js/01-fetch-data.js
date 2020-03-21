@@ -2,23 +2,25 @@
 
 
 const submitButton = document.getElementById('submitButton');
-const apiUrl = 'http://api.tvmaze.com/shows';
-let movieList = null;
+const titleInput = document.getElementById('titleInput');
+let apiUrl = 'http://api.tvmaze.com/search/shows?q=';
+let showList = null;
 
 
 function fetchData() {
-  fetch(apiUrl)
+  const writeHere = titleInput.value;
+
+  fetch(apiUrl+writeHere)
     .then(response => response.json())
     .then(data => {
-      movieList = data;
-      //   console.dir(movieList);
-      paintMovies(movieList);
+      showList = data;
+      console.dir(showList);
+      paintShows(showList);
+      // showFavShows(favShowList);
     })
     .catch(function(error) {
       console.log(error);
     });
 }
-
-
 
 submitButton.addEventListener('click', fetchData);
