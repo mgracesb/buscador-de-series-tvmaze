@@ -1,6 +1,7 @@
 'use strict';
 
 const showShows = document.getElementById('showsList');
+let hereFavShows = document.getElementById('favShows');
 const favShowList = getFromLocal();
 
 
@@ -15,28 +16,26 @@ function paintShows(showList) {
     let showIdOrigin = parseInt(show.show.id);
     showsListing.classList.add('showsListing');
     showsListing.setAttribute('id', `${showIdOrigin}`);
-    showsListingName.appendChild(showsListingContent);
-    showShows.appendChild(showsListing);
-    showsListing.appendChild(showsListingName);
+    let image = show.show.image;
 
-    const showImg = show.show.image;
 
-    if (!showImg.medium){
-      let showsListingImg = document.createElement('img');
-      showsListingImg.src = 'https://via.placeholder.com/210x295/ffffff/666666/?';
-      showsListingImg.classList.add('display-image');
-      showsListing.appendChild(showsListingImg);
-
-    }else{
-      let showsListingImg = document.createElement('img');
-      showsListingImg.src = showImg.medium;
-      showsListingImg.classList.add('display-image');
-      showsListing.appendChild(showsListingImg);
+    if(image !== null){
+      let showImage = document.createElement('img');
+      showImage.src = `${image.medium}`;
+      showsListing.appendChild(showImage);
+    }else if(image === null){
+      let showImage = document.createElement('img');
+      showImage.src = 'https://via.placeholder.com/210x295/ffffff/666666/? text=TV';
+      showsListing.appendChild(showImage);
     }
+
+    showsListingName.appendChild(showsListingContent);
+    showsListing.appendChild(showsListingName);
+    showShows.appendChild(showsListing);
+
     liListener();
   }
 }
-
 
 
 function liListener() {
@@ -55,7 +54,6 @@ function selectFavShow(evt){
   showFavShows(favShowList);
 
   let showInfo = getMovieObject(favShow);
-  console.log(showInfo);
 }
 
 function getMovieObject(id) {
@@ -64,22 +62,20 @@ function getMovieObject(id) {
 
 
 function showFavShows(favArray) {
-  let hereFavShows = document.getElementById('favShows');
   hereFavShows.innerHTML = '';
-
   for (let showSelected of favArray) {
+    
     let thisObject = getMovieObject(showSelected);
-
-    if (showSelected === thisObject.id) {
-
+    
+    if (showSelected === thisObject.show.id) {
       let favShowLi = document.createElement('li');
       favShowLi.setAttribute('class', 'favShowLi');
       let favShowName = document.createElement('h4');
-      let nameContent = thisObject.name;
+      let nameContent = thisObject.show.name;
       let favShowNameContent = document.createTextNode(nameContent);
       favShowName.appendChild(favShowNameContent);
       let favShowImg = document.createElement('img');
-      favShowImg.src = thisObject.image.original;
+      favShowImg.src = thisObject.show.image.medium;
       hereFavShows.appendChild(favShowLi);
       favShowLi.appendChild(favShowName);
       favShowLi.appendChild(favShowImg);

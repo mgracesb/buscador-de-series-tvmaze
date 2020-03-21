@@ -16,7 +16,7 @@ function fetchData() {
       showList = data;
       console.dir(showList);
       paintShows(showList);
-      // showFavShows(favShowList);
+      showFavShows(favShowList);
     })
     .catch(function(error) {
       console.log(error);
