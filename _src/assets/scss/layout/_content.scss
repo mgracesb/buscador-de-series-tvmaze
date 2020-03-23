@@ -3,7 +3,6 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   max-width: 1200px;
-  background-image: linear-gradient(rgb(102, 102, 102),black);
   overflow-x: hidden;
   
   .section {
@@ -34,7 +33,9 @@
   .aside {
     min-width: 270px;
     min-height: 93vh;
-    background-color: rgba(0, 0, 0, 0.63);
+    background-color: rgba(245, 245, 245, 0.288);
+    border-radius: 15px;
+    border-right: 0.5px solid rgb(255, 255, 255);
     padding: 2rem;
     padding-right: 1rem;
 
@@ -42,12 +43,12 @@
       font-size: 1.2rem;
       font-weight: lighter;
       padding-bottom: 1.5rem;
-      color: $colorDefaultLight1;
+      color: rgb(69, 69, 73);
     }
     .heart {
       font-size: 1.4rem;
       padding-left: 0.5rem;
-      color: red;
+      color: rgb(250, 225, 6);
     }
     .favShows {
       
@@ -57,14 +58,13 @@
         justify-content: flex-end;
         align-items: center;
         margin-bottom: 15px;
-        background-color: rgba(36, 36, 36, 0.479);
         border-radius: 5px;
         height: 80px;
 
         & h4 {
-          font-size: 1rem;
+          font-size: 1.2rem;
           font-weight: 100;
-          color: $colorDefaultLight1;
+          color: $colorDefaultDark2;
           padding-left: 7%;
           width: 140px;
         }

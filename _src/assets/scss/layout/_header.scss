@@ -1,12 +1,21 @@
 .page__header {
-  width: 80vw;
+  width: 100%;
   padding: 20px;
-  
+  text-align: center;
+  border-bottom: 0.5px solid rgba(245, 245, 245, 0.63);
+
+  h1 {
+    margin: 10px;
+    font-size: 2.5rem;
+    color: white;
+  }
   .navBar {
-    margin-bottom: 20px;
-    
+    text-align: center;
+    padding-bottom: 20px;
+
     .titleInput {
-      font-family: monospace;
+      font-weight: normal;
+      font-size: 14px;
       color: rgb(43, 43, 43);
       border: 0.5px solid $colorDefaultLight2;
       border-radius: 20px;
@@ -18,7 +27,7 @@
 
     .submitButton {
       background-color: $colorDefaultBg1;
-      color: white;
+      color: $colorDefaultLight1;
       border-radius: 20px;
       border: none;
       min-width: 70px;
