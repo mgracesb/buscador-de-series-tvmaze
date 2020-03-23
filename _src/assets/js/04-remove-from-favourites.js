@@ -10,10 +10,21 @@ function removeFavListener(){
 }
 
 
-function removeFavShow(){
-  const removeThisShow = document.querySelectorAll('.favShowLi');
+////Elimino de favoritos y lo guardo en LocalStorage
+function removeFavShow(evt){
+  const removeButtonId = evt.target.id;
+  const removeThisLi = document.querySelectorAll('.favShows li');
 
-  for (let show of removeThisShow){
-    show.parentNode.removeChild(show);
+  for(let removeThis of removeThisLi) {
+    let removeThisById = removeThis.id;
+
+    if(removeThisById === removeButtonId){
+      removeThis.remove();
+
+      const removeFromFavArray = favShowList.indexOf(removeThisById);
+      favShowList.splice(removeFromFavArray);
+
+      saveToLocal();
+    }
   }
 }

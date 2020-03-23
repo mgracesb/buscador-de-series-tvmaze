@@ -78,8 +78,10 @@ function paintFavShows(favShowList) {
     let x = document.createTextNode('x');
 
     favShowDelete.setAttribute('type','button');
+    favShowDelete.setAttribute('id',`'${favShow.name}'`);
     favShowDelete.classList.add('deleteButton');
     favShowList.classList.add('favShowLi');
+    favShowList.setAttribute('id',`'${favShow.name}'`);
     favShowDelete.appendChild(x);
     favShowList.appendChild(favShowDelete);
     favShowName.appendChild(favShowNameContent);
