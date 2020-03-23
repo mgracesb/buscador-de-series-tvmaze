@@ -4,19 +4,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Adalab Web Starter Kit</title>
-        <link rel="icon" href="./favicon.png" />
+        <title>Buscador de Series TvMaze - Mercy Shyu</title>
+        <link rel="icon" href="./favicon.png"
+        />
+        <link href="https://fonts.googleapis.com/css?family=Sen:400,800&display=swap"
+        rel="stylesheet">
         <link rel="stylesheet" href="./assets/css/main.css" />
     </head>
     
     <body>
-        <div>
+        <div class="container">
             <header class="page__header">
-                 <h1 id="header" class="header">Buscador de series</h1>
+                 <h1 id="header" class="header">Encuentra tu serie</h1>
 
                 <nav class="navBar">
-                    <input type="text" name="titleInput" id="titleInput" class="titleInput">
-                    <button type="submit" id="submitButton" class="submitButton">Search</button>
+                    <input type="text" name="titleInput" id="titleInput" class="titleInput"
+                    placeholder="Nombre de serie">
+                    <button type="submit" id="submitButton" class="submitButton">buscar</button>
                 </nav>
             </header>
             <main class="page__main">
@@ -24,7 +28,7 @@
                     <ul id="showsList" class="showsList"></ul>
                 </section>
                 <aside id="" class="aside">
-                     <h2>Mis series favoritas  <span class='heart'>&#9829;</span></h2>
+                     <h2>Mis series favoritas  <span class='heart'>&#9733;</span></h2>
 
                     <ul id="favShows" class="favShows"></ul>
                 </aside>
