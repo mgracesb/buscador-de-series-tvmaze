@@ -24,8 +24,12 @@
         padding-bottom: 10px;
         
         & h3 {
-          color: $colorDefaultLight2;
-          padding-top: 1rem;
+          font-weight: lighter;
+          color: $colorDefaultLight1;
+          padding-top: 1.2rem;
+        }
+        & img {
+          border-radius: 15px;
         }
       }
     }
