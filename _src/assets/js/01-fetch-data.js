@@ -15,7 +15,7 @@ function fetchData() {
     .then(response => response.json())
     .then(data => {
       showList = data;
-      console.dir(showList);
+
       paintShows(showList);
       paintFavShows(favShowList);
     })
