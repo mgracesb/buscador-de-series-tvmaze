@@ -1,0 +1,15 @@
+.page__footer {
+    background-color: $colorDefaultLight1;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+
+    .tvmaze {
+        width: 100px;
+        height: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

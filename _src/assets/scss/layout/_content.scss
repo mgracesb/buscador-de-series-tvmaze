@@ -11,22 +11,24 @@
 
     .showsList {
       min-width: 100%;
+      min-height: 80vh;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(5, 380px);
+      grid-template-rows: repeat(auto, 380px);
 
       .showsListing {
         display: flex;
         flex-direction: column;
         align-items: center;
         align-content: center;
-        padding: 5px;
-        padding-bottom: 10px;
+        padding: 7px;
+        padding-bottom: 15px;
         
         & h3 {
           font-weight: lighter;
           color: $colorDefaultLight1;
-          padding-top: 1.2rem;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
         }
         & img {
           border-radius: 15px;
@@ -36,24 +38,22 @@
   }
   .aside {
     min-width: 270px;
-    min-height: 93vh;
+    min-height: 100%;
     background-color: rgba(245, 245, 245, 0.288);
     border-radius: 15px;
     border-right: 0.5px solid rgb(255, 255, 255);
     padding: 2rem;
-    padding-right: 1rem;
 
     & h2 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: lighter;
-      padding-bottom: 1.5rem;
-      color: rgb(69, 69, 73);
+      padding-bottom: 0.8rem;
+      text-align: center;
+      color: $colorDefaultDark1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.8);
     }
-    .heart {
-      font-size: 1.4rem;
-      padding-left: 0.5rem;
-      color: rgb(250, 225, 6);
-    }
+
+
     .favShows {
       
       .favShowLi {
@@ -64,7 +64,7 @@
         margin-bottom: 15px;
         border-radius: 5px;
         height: 80px;
-
+        
         & h4 {
           font-size: 1.2rem;
           font-weight: 100;
