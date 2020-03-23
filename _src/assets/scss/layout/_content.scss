@@ -2,67 +2,87 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-
+  max-width: 1200px;
+  background-image: linear-gradient(rgb(102, 102, 102),black);
+  overflow-x: hidden;
+  
   .section {
     display: flex;
     width: 80%;
+
     .showsList {
-      padding-left: 20px;
-      padding-right: 20px;
       min-width: 100%;
-      background-color: khaki;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
+      grid-template-rows: repeat(5, 380px);
 
       .showsListing {
         display: flex;
         flex-direction: column;
         align-items: center;
         align-content: center;
-        
         padding: 5px;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
+        
         & h3 {
-          color: rgb(243, 67, 205);
-        }
-        .display-image {
-        min-height: 600px;
-        width: 300px;
-        margin: 10px;
+          color: $colorDefaultLight2;
+          padding-top: 1rem;
         }
       }
     }
   }
   .aside {
-    width: 300px;
+    min-width: 270px;
     min-height: 93vh;
-    background-color: rgb(255, 233, 252);
+    background-color: rgba(0, 0, 0, 0.63);
+    padding: 2rem;
+    padding-right: 1rem;
+
+    & h2 {
+      font-size: 1.2rem;
+      font-weight: lighter;
+      padding-bottom: 1.5rem;
+      color: $colorDefaultLight1;
+    }
+    .heart {
+      font-size: 1.4rem;
+      padding-left: 0.5rem;
+      color: red;
+    }
     .favShows {
-      padding: 1.5rem;
+      
       .favShowLi {
         display: flex;
         flex-direction: row-reverse;
         justify-content: flex-end;
         align-items: center;
-        margin-bottom: 10px;
-        background-color: rgb(249, 254, 255);
+        margin-bottom: 15px;
+        background-color: rgba(36, 36, 36, 0.479);
         border-radius: 5px;
+        height: 80px;
 
         & h4 {
-          font-size: 1.5rem;
-          color: rgb(223, 219, 1);
-          padding-left: 5%;
+          font-size: 1rem;
+          font-weight: 100;
+          color: $colorDefaultLight1;
+          padding-left: 7%;
+          width: 140px;
         }
-        & img {
-          max-height: 100px;
+        .favShowImg {
+          height: 90px;
+        }
+        .deleteButton {
+          background-color: rgba(0, 0, 0, 0);
+          color: red;
+          height: 25px;
+          width: 25px;
+          padding: 15px;
+          padding-top: 30px;
+          padding-bottom: 30px;
+          transform: translatey(-20%);
         }
       }
     }
-  }
-
-  .aside .favShows .hidden {
-    visibility: hidden;
   }
 
   .selectedShow {

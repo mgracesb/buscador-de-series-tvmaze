@@ -1,12 +1,13 @@
 'use strict';
 
-const showShows = document.getElementById('showsList');
-let hereFavShows = document.getElementById('favShows');
-const favShowList = getFromLocal();
+
+const showsListUl = document.getElementById('showsList');
+let paintFavShowList = document.getElementById('favShows');
 
 
+////Pinto las series que se obtienen de la búsqueda
 function paintShows(showList) {
-  showShows.innerHTML = '';
+  showsListUl.innerHTML = '';
 
   for (let show of showList) {
     let showNameOrigin = show.show.name;
@@ -18,7 +19,6 @@ function paintShows(showList) {
     showsListing.setAttribute('id', `${showIdOrigin}`);
     let image = show.show.image;
 
-
     if(image !== null){
       let showImage = document.createElement('img');
       showImage.src = `${image.medium}`;
@@ -28,17 +28,16 @@ function paintShows(showList) {
       showImage.src = 'https://via.placeholder.com/210x295/ffffff/666666/? text=TV';
       showsListing.appendChild(showImage);
     }
-
     showsListingName.appendChild(showsListingContent);
     showsListing.appendChild(showsListingName);
-    showShows.appendChild(showsListing);
+    showsListUl.appendChild(showsListing);
 
-    liListener();
+    showToFavListener();
   }
 }
 
 
-function liListener() {
+function showToFavListener() {
   const showsListLi = document.querySelectorAll('.showsList li');
 
   for(let showsLi of showsListLi) {
@@ -46,39 +45,57 @@ function liListener() {
   }
 }
 
+
+////Al seleccionar una serie, la guardo tomando como referencia su Id
 function selectFavShow(evt){
-  let favShow = parseInt(evt.currentTarget.id);
-  favShowList.push(favShow);
+  const favShowIdClick = parseInt(evt.currentTarget.id);
+
+  let objectId = getObjectById(favShowIdClick);
+  let favShowObj = objectId.show;
+
+  favShowList.push(favShowObj);
 
   saveToLocal();
-  showFavShows(favShowList);
-
-  let showInfo = getMovieObject(favShow);
-}
-
-function getMovieObject(id) {
-  return showList.find(show => show.id === id);
+  paintFavShows(favShowList);
 }
 
 
-function showFavShows(favArray) {
-  hereFavShows.innerHTML = '';
-  for (let showSelected of favArray) {
-    
-    let thisObject = getMovieObject(showSelected);
-    
-    if (showSelected === thisObject.show.id) {
-      let favShowLi = document.createElement('li');
-      favShowLi.setAttribute('class', 'favShowLi');
-      let favShowName = document.createElement('h4');
-      let nameContent = thisObject.show.name;
-      let favShowNameContent = document.createTextNode(nameContent);
-      favShowName.appendChild(favShowNameContent);
-      let favShowImg = document.createElement('img');
-      favShowImg.src = thisObject.show.image.medium;
-      hereFavShows.appendChild(favShowLi);
-      favShowLi.appendChild(favShowName);
-      favShowLi.appendChild(favShowImg);
+function getObjectById(id){
+  return showList.find(show => show.show.id === id);
+}
+
+
+////Pinto en la sección de favoritos las series
+function paintFavShows(favShowList) {
+  paintFavShowList.innerHTML = '';
+
+  for (let favShow of favShowList){
+    let favShowList = document.createElement('li');
+    let favShowName = document.createElement('h4');
+    let favShowImg = document.createElement('img');
+    let favShowNameContent = document.createTextNode(`${favShow.name}`);
+    let favShowDelete = document.createElement('button');
+    let x = document.createTextNode('x');
+
+    favShowDelete.setAttribute('type','button');
+    favShowDelete.classList.add('deleteButton');
+    favShowList.classList.add('favShowLi');
+    favShowDelete.appendChild(x);
+    favShowList.appendChild(favShowDelete);
+    favShowName.appendChild(favShowNameContent);
+    favShowList.appendChild(favShowName);
+
+    if(favShow.image !== null){
+      favShowImg.src = `${favShow.image.medium}`;
+      favShowImg.classList.add('favShowImg');
+      favShowList.appendChild(favShowImg);
+    }else{
+      favShowImg.src = 'https://via.placeholder.com/210x295/ffffff/666666/? text=TV';
+      favShowImg.classList.add('favShowImg');
+      favShowList.appendChild(favShowImg);
     }
+
+    paintFavShowList.appendChild(favShowList);
+    removeFavListener();
   }
 }

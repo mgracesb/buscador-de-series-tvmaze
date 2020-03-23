@@ -1,0 +1,28 @@
+.page__header {
+  width: 80vw;
+  padding: 20px;
+  
+  .navBar {
+    margin-bottom: 20px;
+    
+    .titleInput {
+      font-family: monospace;
+      color: rgb(43, 43, 43);
+      border: 0.5px solid $colorDefaultLight2;
+      border-radius: 20px;
+      min-height: 2rem;
+      width: 200px;
+      margin-right: 7px;
+      padding-left: 10px;
+    }
+
+    .submitButton {
+      background-color: $colorDefaultBg1;
+      color: white;
+      border-radius: 20px;
+      border: none;
+      min-width: 70px;
+      height: 25px; 
+    }
+  }
+}

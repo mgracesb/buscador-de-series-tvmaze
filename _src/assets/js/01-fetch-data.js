@@ -5,6 +5,7 @@ const submitButton = document.getElementById('submitButton');
 const titleInput = document.getElementById('titleInput');
 let apiUrl = 'http://api.tvmaze.com/search/shows?q=';
 let showList = null;
+const favShowList = getFromLocal();
 
 
 function fetchData() {
@@ -16,7 +17,7 @@ function fetchData() {
       showList = data;
       console.dir(showList);
       paintShows(showList);
-      showFavShows(favShowList);
+      paintFavShows(favShowList);
     })
     .catch(function(error) {
       console.log(error);
