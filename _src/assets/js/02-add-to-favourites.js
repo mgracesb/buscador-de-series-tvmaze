@@ -11,10 +11,26 @@ function paintShows(showList) {
 
   for (let show of showList) {
     let showNameOrigin = show.show.name;
+    let showIdOrigin = parseInt(show.show.id);
+
     let showsListing = document.createElement('li');
     let showsListingName = document.createElement('h3');
+    let infoButton = document.createElement('button');
+    let addToFavourites = document.createElement('button');
+
+    let infoButtonContent = document.createTextNode('más info');
+    let addToFavouritesContent = document.createTextNode('♡');
+    let buttonsContainer = document.createElement('div');
+    buttonsContainer.classList.add('buttonsStyle');
+
+    infoButton.appendChild(infoButtonContent);
+    addToFavourites.appendChild(addToFavouritesContent);
+    infoButton.classList.add('infoButton');
+    addToFavourites.classList.add('addToFavourites');
+
+
     let showsListingContent = document.createTextNode(showNameOrigin);
-    let showIdOrigin = parseInt(show.show.id);
+
     showsListing.classList.add('showsListing');
     showsListing.setAttribute('id', `${showIdOrigin}`);
     let image = show.show.image;
@@ -28,8 +44,14 @@ function paintShows(showList) {
       showImage.src = 'https://via.placeholder.com/210x295/ffffff/666666/? text=TV';
       showsListing.appendChild(showImage);
     }
+
     showsListingName.appendChild(showsListingContent);
     showsListing.appendChild(showsListingName);
+
+    buttonsContainer.appendChild(infoButton);
+    buttonsContainer.appendChild(addToFavourites);
+    showsListing.appendChild(buttonsContainer);
+
     showsListUl.appendChild(showsListing);
 
     showToFavListener();
